@@ -69,8 +69,8 @@ app.get("/", function (req, res) {
 });
 
 app.delete("/:id", function (req, res) {
-  gridRecords.filter((record) => record.id != req.params.id);
-  detailsRecords.filter((record) => record.id != req.params.id);
+  gridRecords = gridRecords.filter((record) => record.id != req.params.id);
+  gridRecords = detailsRecords.filter((record) => record.id != req.params.id);
   res.sendStatus(200);
 });
 
