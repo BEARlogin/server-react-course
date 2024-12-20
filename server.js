@@ -69,8 +69,10 @@ app.get("/", function (req, res) {
 });
 
 app.delete("/:id", function (req, res) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
   gridRecords = gridRecords.filter((record) => record.id != req.params.id);
-  gridRecords = detailsRecords.filter((record) => record.id != req.params.id);
+  detailsRecords = detailsRecords.filter((record) => record.id != req.params.id);
   res.sendStatus(200);
 });
 
